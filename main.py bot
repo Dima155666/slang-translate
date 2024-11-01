@@ -1,0 +1,44 @@
+import telebot
+from  telebot.types import Message 
+import random
+bot = telebot.Telebot("7580926455:AAG8rfXrNQs08yN35T-iJVzTERa4_CnEej8")
+                      
+
+@bot.message_handler(commands=['start'])
+def start(message: Message):
+    bot.reply_to(message,'Привет👋')
+
+@bot.message_handler(commands=['random'])
+def start(message:Message):
+    if random.randit(0,100) ==0:
+        bot.reply_to(message,'вам выпал <b>орел</b!')
+    else:
+        bot.reply_to(message, 'вам выпал <b>решка</b>!')
+                     
+
+@bot.message_handler(commands=['photo'])
+def cmd_photo(message:Message):
+    bot.send_photo(message.chat.id ("https://pokemons.vcomicse.ru/wp-content/uploads/2019/02/48775_m1507767068")
+
+
+
+@bot.message_hander(commands=['task'])
+def cmd_task(message:  Message):
+    with open('tasks.txt', 'a', encoding='uft-8') as file:
+        file.write(message.text)
+        bot.reply_to(message, 'Задача добавлена')
+
+
+ 
+@bot.message_handler(commands=['mem'])
+def send_mem(message):
+    
+    with open('images/mem1.jpg', 'rb') as f:  
+        bot.send_photo(message.chat.id, f)
+
+
+
+
+
+
+ bot.polling)
